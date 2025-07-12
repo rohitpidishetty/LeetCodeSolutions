@@ -90,7 +90,7 @@ class Solution {
 
   }
 
-  public boolean isValidSudoku(char[][] board) {
+  public boolean solveSudoku(char[][] board) {
     exclusiveBlockMap = new HashMap<>();
     exclusiveRows = new HashMap<>();
     exclusiveCols = new HashMap<>();
@@ -102,7 +102,7 @@ class Solution {
   }
 }
 
-public class _36_Valid_Sudoku {
+public class _37 {
   public static void main(String[] args) {
     char[][] board = {
         { '5', '3', '.', '.', '7', '.', '.', '.', '.' },
