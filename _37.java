@@ -115,6 +115,6 @@ public class _37 {
         { '.', '.', '.', '4', '1', '9', '.', '.', '5' },
         { '.', '.', '.', '.', '8', '.', '.', '7', '9' }
     };
-    System.out.println(new Solution().isValidSudoku(board));
+    System.out.println(new Solution().solveSudoku(board));
   }
 }
