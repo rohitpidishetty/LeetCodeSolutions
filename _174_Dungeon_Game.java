@@ -18,8 +18,27 @@ class Solution {
 
   public int calculateMinimumHP(int[][] dungeon) {
 
-    solve(dungeon, 0, 0, 0, 0);
-    return minInitialHealth;
+    // solve(dungeon, 0, 0, 0, 0);
+    // return minInitialHealth;
+
+    int n = dungeon.length - 1;
+    int m = dungeon[0].length - 1;
+    int infinity = Integer.MAX_VALUE;
+
+    for (int i = n; i >= 0; i--) {
+      for (int j = m; j >= 0; j--) {
+        if (i == n && j == m)
+          dungeon[i][j] = dungeon[i][j] > 0 ? 1 : (dungeon[i][j] * -1) + 1;
+        else {
+          int right = j + 1 > m ? infinity : dungeon[i][j + 1];
+          int down = i + 1 > n ? infinity : dungeon[i + 1][j];
+          int result = (right < down) ? right - dungeon[i][j] : down - dungeon[i][j];
+          dungeon[i][j] = result <= 0 ? 1 : result;
+        }
+      }
+    }
+
+    return dungeon[0][0];
   }
 }
 
