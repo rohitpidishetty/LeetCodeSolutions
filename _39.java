@@ -14,9 +14,7 @@ class Solution {
     int summation,
     ArrayList<Integer> buffer
   ) {
-    if (summation == target) 
-      collection.add(new ArrayList<>(buffer));
-    
+    if (summation == target) collection.add(new ArrayList<>(buffer));
     if (summation > target) return;
     for (int n = i; n < candidates.length; n++) {
       buffer.add(candidates[n]);
