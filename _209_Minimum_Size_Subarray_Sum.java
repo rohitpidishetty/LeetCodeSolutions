@@ -1,20 +1,38 @@
+import java.util.HashMap;
+import java.util.Map;
+
 class Solution {
+
+  // public int minSubArrayLen(int target, int[] nums) {
+  //   int i = 0;
+  //   int j = 0;
+  //   int sum = 0;
+  //   int min = Integer.MAX_VALUE;
+  //   while (j < nums.length) {
+  //     sum += nums[j];
+  //     while (sum >= target && i <= j) {
+  //       min = Math.min(min, j - i + 1);
+  //       sum -= nums[i];
+  //       i++;
+  //     }
+  //     j++;
+  //   }
+  //   return min == Integer.MAX_VALUE ? 0 : min;
+  // }
 
   public int minSubArrayLen(int target, int[] nums) {
     int i = 0;
-    int j = 0;
     int sum = 0;
     int min = Integer.MAX_VALUE;
-    while (j < nums.length) {
-      sum += nums[j];
-      while (sum >= target && i <= j) {
-        min = Math.min(min, j - i + 1);
-        sum -= nums[i];
-        i++;
+    Map<Integer, Integer> m = new HashMap<>();
+    for (; i < nums.length; i++) {
+      sum += nums[i];
+      m.put(sum, i);
+      if (m.containsKey(sum - target)) {
+        min = Math.min(min, i - m.get(sum - target));
       }
-      j++;
     }
-    return min == Integer.MAX_VALUE ? 0 : min;
+    return min;
   }
 }
 
