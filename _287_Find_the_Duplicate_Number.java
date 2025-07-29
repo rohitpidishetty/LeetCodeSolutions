@@ -13,6 +13,7 @@ class Solution {
     sp = nums[0];
     // Traverse one by one to meet at a single re-occuring point
     while (sp != fp) {
+      // System.out.println(sp + " " + fp);
       sp = nums[sp];
       fp = nums[fp];
     }
