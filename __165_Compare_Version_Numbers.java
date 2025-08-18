@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 class Solution {
 
-  //-------------------- Initial solution --------------------
+  // -------------------- Initial solution --------------------
   private int solve(int[] v1, int[] v2) {
     int i = 0;
     int j = 0;
@@ -37,7 +37,6 @@ class Solution {
   }
   // -------------------- Sol end --------------------
 
-  
 }
 
 public class __165_Compare_Version_Numbers {
