@@ -27,7 +27,6 @@ class Solution {
       curr = curr.next.next;
     }
 
-    
     Node copy = null;
     Node duplicate = null;
 
