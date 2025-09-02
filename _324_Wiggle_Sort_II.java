@@ -7,20 +7,9 @@ class Solution {
     int n = nums.length;
     int j = n - 1;
     int[] result = new int[n];
-    if (n % 2 == 0) {
-      int mid = (n / 2) - 1;
-      int i = mid;
-      for (int k = 0; k < n; k++) result[k] = k % 2 == 0
-        ? nums[i--]
-        : nums[j--];
-    } else {
-      int mid = (n / 2);
-      int i = mid;
-      for (int k = 0; k < n; k++) result[k] = k % 2 == 0
-        ? nums[i--]
-        : nums[j--];
-    }
-    for (int i = 0; i < n; i++) nums[i] = result[i];
+    int i = n % 2 == 0 ? (n / 2) - 1 : (n / 2);
+    for (int k = 0; k < n; k++) result[k] = k % 2 == 0 ? nums[i--] : nums[j--];
+    for (int l = 0; l < n; l++) nums[l] = result[l];
   }
 }
 
