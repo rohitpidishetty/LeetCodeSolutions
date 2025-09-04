@@ -4,14 +4,14 @@ class Solution {
 
   public int countRangeSum(int[] nums, int lower, int upper) {
     int n = nums.length;
-    int[] prefix_sum = new int[n + 1];
+    long[] prefix_sum = new long[n + 1];
     for (int i = 0; i < n; i++) prefix_sum[i + 1] = nums[i] + prefix_sum[i];
 
     return custom_merge_sort(prefix_sum, 0, n + 1, lower, upper);
   }
 
   private int custom_merge_sort(
-    int[] prefixSum,
+    long[] prefixSum,
     int left,
     int right,
     int lb,
@@ -32,8 +32,8 @@ class Solution {
     return count;
   }
 
-  private void merge(int buffer[], int left, int mid, int right) {
-    int[] temp = new int[right - left];
+  private void merge(long buffer[], int left, int mid, int right) {
+    long[] temp = new long[right - left];
     int i = left, j = mid, r = 0;
     while (i < mid && j < right) temp[r++] = (buffer[i] <= buffer[j])
       ? buffer[i++]
