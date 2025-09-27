@@ -59,7 +59,7 @@ class Solution {
     // (b) Then reduce runs where len % 3 == 1 (2 deletions reduce a replacement)
     for (int k = 0; k < idx && toDelete > 0; k++) {
       if (runs[k] < 3) continue;
-      if (runs[k] % 3 == 1) {
+      if (runs[k] % 3 == 1 && runs[k] > 2) {
         int need = Math.min(2, toDelete);
         runs[k] -= need;
         toDelete -= need;
@@ -77,9 +77,7 @@ class Solution {
       toDelete -= canRemove;
     }
 
-    if (replace < 0) replace = 0; // safety
-
-    // total steps = deletions + max(missing types, replacements left)
+    if (replace < 0) replace = 0;
     return delete + Math.max(missing, replace);
   }
 }
