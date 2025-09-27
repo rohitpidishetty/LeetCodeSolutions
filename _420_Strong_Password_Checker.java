@@ -82,13 +82,6 @@ class Solution {
     // total steps = deletions + max(missing types, replacements left)
     return delete + Math.max(missing, replace);
   }
-
-  // Demo main to test the specific failing input
-  public static void main(String[] args) {
-    Solution sol = new Solution();
-    String pw = "aaaaAAAAAA000000123456";
-    System.out.println(sol.strongPasswordChecker(pw)); // prints 5 (expected)
-  }
 }
 
 public class _420_Strong_Password_Checker {
