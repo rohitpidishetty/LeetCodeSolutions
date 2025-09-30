@@ -48,6 +48,10 @@ class Solution {
   ) {
     if (root == null) return 0;
     curr_val += root.val;
+    // System.out.println(
+    //   curr_val + " - " + (curr_val - targetSum) + " = " + targetSum
+    // );
+      // (current_sum:A)+ B = targetSum, then B == A - targetSum. 
     // Check if curr_val - targetSum is present in the freq.
     int present = freq.getOrDefault(curr_val - targetSum, 0);
     freq.put(curr_val, freq.getOrDefault(curr_val, 0) + 1);
