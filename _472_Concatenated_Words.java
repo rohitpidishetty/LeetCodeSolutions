@@ -24,7 +24,7 @@ class Solution {
     if (memo.containsKey(word))
       return memo.get(word);
 
-    if (matches >= 2) {
+    if (n == 0) {
       memo.put(word, true);
       return true;
     }
