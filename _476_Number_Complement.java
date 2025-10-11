@@ -4,10 +4,8 @@ class Solution {
     int i = 31;
     while (((((1 << i) & num) == 0) ? 0 : 1) != 1)
       i--;
-
-    for (; i >= 0; i--) 
+    for (; i >= 0; i--)
       comp |= ((((1 << i) & num) == 0 ? 1 : 0) << i);
-    
     return comp;
   }
 }
