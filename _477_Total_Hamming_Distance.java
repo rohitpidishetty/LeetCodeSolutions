@@ -35,18 +35,13 @@ class Solution {
    */
 
   public int totalHammingDistance(int[] nums) {
-    int bit = 0;
-    int count = 0;
+    int bit = 0, count = 0;
     for (int i = 0; i < 31; i++) {
-      int pos = (1 << i);
-      int zeros = 0, ones = 0;
-      for (int n : nums) {
+      int pos = (1 << i), zeros = 0;
+      for (int n : nums)
         if (((n & pos) == 0 ? 0 : 1) == 0)
           zeros++;
-        else
-          ones++;
-      }
-      count += (zeros * ones);
+      count += (zeros * (nums.length - zeros));
     }
     return count;
   }
