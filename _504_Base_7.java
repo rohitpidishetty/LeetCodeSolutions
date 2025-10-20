@@ -8,7 +8,7 @@ class Solution {
       num /= 7;
     }
 
-    return negative ? "-" + sb.reverse().toString() : sb.reverse().toString();
+    return (negative ? "-" : "") + sb.reverse().toString();
   }
 }
 
