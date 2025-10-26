@@ -3,7 +3,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 class Solution {
-  // 38 / 60 Passed
   public int findPairs(int[] nums, int k) {
     Arrays.sort(nums);
     Map<Integer, Integer> map = new HashMap<>();
