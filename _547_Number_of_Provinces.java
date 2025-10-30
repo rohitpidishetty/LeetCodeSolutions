@@ -6,36 +6,30 @@ import java.util.Queue;
 
 class Solution {
   public int findCircleNum(int[][] isConnected) {
-
     int n = isConnected.length, m = isConnected[0].length;
     List<List<Integer>> graph = new ArrayList<>();
-    int[] union_find_lookup = new int[n];
+    boolean[] visited = new boolean[m];
+    int count = 0;
 
     for (int i = 0; i < n; i++)
       graph.add(new ArrayList<>());
 
     for (int i = 0; i < n; i++) {
-      union_find_lookup[i] = i;
       for (int j = 0; j < m; j++) {
-        if (isConnected[i][j] == 1 && i != j) {
-
+        if (isConnected[i][j] == 1 && i != j)
           graph.get(i).add(j);
-        }
       }
     }
+    Queue<Integer> bfsQ = new ArrayDeque<>();
 
-    boolean[] visited = new boolean[m];
-
-    int count = 0;
     for (int i = 0; i < n; i++) {
       if (!visited[i]) {
-        Queue<Integer> bfsQ = new ArrayDeque<>();
+        bfsQ.clear();
         bfsQ.offer(i);
         visited[i] = true;
         count++;
         while (!bfsQ.isEmpty()) {
-          int x = bfsQ.poll();
-          for (int neighbor : graph.get(x)) {
+          for (int neighbor : graph.get(bfsQ.poll())) {
             if (!visited[neighbor]) {
               visited[neighbor] = true;
               bfsQ.offer(neighbor);
