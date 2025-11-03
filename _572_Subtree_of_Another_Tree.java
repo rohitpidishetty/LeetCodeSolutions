@@ -29,20 +29,18 @@ class Solution {
     return String.valueOf(r.val) + "#" + fn(r.left) + "#" + fn(r.right);
   }
 
-  private Set<String> set = new HashSet<>();
-
-  private void solve(TreeNode r) {
+  private boolean solve(TreeNode r, String config) {
     if (r == null)
-      return;
-    this.set.add(fn(r));
-    solve(r.left);
-    solve(r.right);
+      return false;
+    if (config.equals(fn(r)))
+      return true;
+    return solve(r.left, config) || solve(r.right, config);
   }
 
   public boolean isSubtree(TreeNode root, TreeNode subRoot) {
-    solve(root);
 
-    return this.set.contains(fn(subRoot));
+    return solve(root, fn(subRoot));
+
   }
 }
 
