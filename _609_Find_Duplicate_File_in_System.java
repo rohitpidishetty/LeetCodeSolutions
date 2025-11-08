@@ -1,4 +1,4 @@
-import java.util.*;
+// import java.util.*;
 // 160 / 162 testcases passed
 // class Solution {
 
@@ -67,13 +67,13 @@ import java.util.*;
 
 import java.util.*;
 
-public class Solution {
+class Solution {
 
   public List<List<String>> findDuplicate(String[] paths) {
     Map<String, List<String>> contentMap = new HashMap<>();
 
     for (String path : paths) {
-      String[] parts = path.split(" "); 
+      String[] parts = path.split(" ");
       String dir = parts[0];
 
       for (int i = 1; i < parts.length; i++) {
