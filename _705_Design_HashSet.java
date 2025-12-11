@@ -5,31 +5,22 @@ import java.util.Map;
 
 class MyHashSet {
 
-  private int hash(int key) {
-    return (key << 4) ^ 2;
-  }
-
-  private Map<Integer, Integer> map;
+  private boolean[] map;
 
   public MyHashSet() {
-    List<Integer> buff = new ArrayList<>();
-    this.map = new HashMap<>();
+    this.map = new boolean[1000001];
   }
 
   public void add(int key) {
-    int h = hash(key);
-    if (this.map.containsKey(h)) return;
-    this.map.put(h, key);
+    this.map[key] = true;
   }
 
   public void remove(int key) {
-    int h = hash(key);
-    if (!this.map.containsKey(h)) return;
-    this.map.remove(h);
+    this.map[key] = false;
   }
 
   public boolean contains(int key) {
-    return this.map.containsKey(hash(key));
+    return this.map[key];
   }
 }
 
