@@ -16,10 +16,8 @@ class Solution {
       } else c--;
 
       if (c == 0) {
-        String ans = new String();
-        ans = solve(s, S + 1, k - 1);
+        list.add("1" + solve(s, S + 1, k - 1) + "0");
         S = k + 1;
-        list.add("1" + ans + "0");
       }
     }
 
