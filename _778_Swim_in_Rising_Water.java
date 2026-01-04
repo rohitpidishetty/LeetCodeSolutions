@@ -41,6 +41,8 @@ class Solution {
       Tuple<Integer> top = pQ.poll();
       int nextPath = top.buffer[0];
       int curr_i_coord = top.buffer[1], curr_j_coord = top.buffer[2];
+      if (visited[curr_i_coord][curr_j_coord]) continue;
+      visited[curr_i_coord][curr_j_coord] = true;
       if (
         curr_i_coord == grid.length - 1 && curr_j_coord == grid[0].length - 1
       ) return nextPath;
@@ -57,7 +59,6 @@ class Solution {
 
         if (!visited[next_i][next_j]) {
           pQ.offer(new Tuple<Integer>(Math.max(nextPath, ele), next_i, next_j));
-          visited[next_i][next_j] = true;
         }
       }
     }
