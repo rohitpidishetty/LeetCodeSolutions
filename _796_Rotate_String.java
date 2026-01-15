@@ -1,7 +1,7 @@
 class Solution {
 
   public boolean rotateString(String s, String goal) {
-    return false;
+    return (s.length() == goal.length()) && (s + s).contains(goal);
   }
 }
 
