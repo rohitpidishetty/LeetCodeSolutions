@@ -16,8 +16,17 @@ class Solution {
   }
 
   public double champagneTower(int poured, int query_row, int query_glass) {
-    this.memo = new Double[101][101];
-    return Math.min(1.0, solve(poured, query_row, query_glass));
+    // this.memo = new Double[101][101];
+
+    double[][] dp = new double[101][101];
+    dp[0][0] = (double) poured;
+    for (int i = 1; i <= query_row; i++) {
+      for (int j = 0; j <= i; j++) dp[i][j] =
+        Math.max(j > 0 ? (dp[i - 1][j - 1] - 1) / 2.0 : 0, 0d) +
+        Math.max((j < i ? dp[i - 1][j] - 1 : 0) / 2, 0d);
+    }
+
+    return Math.min(1.0, dp[query_row][query_glass]);
   }
 }
 
