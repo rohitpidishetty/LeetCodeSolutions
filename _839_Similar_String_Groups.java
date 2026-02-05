@@ -42,7 +42,7 @@ class Solution {
         int parentOf_i = parent(i);
         int parentOf_j = parent(j);
         if (parentOf_i == parentOf_j) continue; // Same group
-        if (isSimilar(strs[i], strs[j], m) && parentOf_i != parentOf_j) {
+        if (isSimilar(strs[i], strs[j], m)) {
           union(parentOf_i, parentOf_j);
           group--;
         }
