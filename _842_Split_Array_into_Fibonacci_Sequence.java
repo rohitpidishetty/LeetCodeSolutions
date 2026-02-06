@@ -18,10 +18,6 @@ class Solution {
     bfsQ.offer(new State(new ArrayList<>(), num));
 
     while (!bfsQ.isEmpty()) {
-      int levelOrderSize = bfsQ.size();
-      int deQueued = 0;
-      // Process all states in level order fashion
-
       State curr = bfsQ.poll();
       int n = curr.num.length();
       if (n == 0 && curr.series.size() >= 3) return curr.series;
