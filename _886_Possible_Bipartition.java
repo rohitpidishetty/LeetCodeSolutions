@@ -14,9 +14,10 @@ class Solution {
       graph.get(edge[0]).add(edge[1]);
       graph.get(edge[1]).add(edge[0]);
     }
+    Arrays.fill(color, -1);
     for (int i = 1; i <= n; i++) {
       int colorCode = 0;
-      Arrays.fill(color, -1);
+      if (color[i] != -1) continue;
       color[i] = colorCode;
       Queue<Integer> bfsQ = new ArrayDeque<>();
       bfsQ.offer(i);
