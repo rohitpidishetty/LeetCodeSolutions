@@ -4,7 +4,6 @@ class Solution {
     if (r == null) return;
     solve(r.left);
     solve(r.right);
-    TreeNode left = r.left;
     TreeNode save = r.right;
     r.right = r.left;
     r.left = null;
