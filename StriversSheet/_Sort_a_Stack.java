@@ -6,7 +6,6 @@ class Solution {
     if (st.isEmpty()) return null;
     Integer top = st.pop();
     solve(st);
-
     Stack<Integer> temp = new Stack<>();
     if (st.isEmpty()) st.push(top);
     else {
