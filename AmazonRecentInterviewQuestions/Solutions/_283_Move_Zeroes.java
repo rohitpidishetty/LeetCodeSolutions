@@ -5,7 +5,6 @@ class Solution {
   public void moveZeroes(int[] nums) {
     int za = -1;
     for (int i = 0; i < nums.length; i++) {
-      System.out.println(Arrays.toString(nums) + " za " + za);
       if (nums[i] != 0 && za == -1) continue;
       if (nums[i] == 0 && za == -1) za = i;
       if (nums[i] != 0) {
