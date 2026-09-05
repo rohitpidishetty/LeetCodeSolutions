@@ -12,7 +12,6 @@ class Solution {
       freqMap[s2.charAt(i) - 'a']++;
       if (i >= n - 1) {
         if (Arrays.compare(freqMap, s1Map) == 0) return true;
-
         freqMap[s2.charAt(i - n + 1) - 'a']--;
       }
     }
