@@ -12,7 +12,6 @@ class Solution {
   ) {
     if (start > n) {
       if (buff.size() == k) freq.add(new ArrayList<>(buff));
-
       return;
     }
 

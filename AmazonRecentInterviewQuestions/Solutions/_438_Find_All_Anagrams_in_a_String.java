@@ -16,7 +16,6 @@ class Solution {
       sFreqMap[s.charAt(i) - 'a']++;
       if (i >= n - 1) {
         if (Arrays.compare(pFreqMap, sFreqMap) == 0) res.add(i - n + 1);
-
         sFreqMap[s.charAt(i - n + 1) - 'a']--;
       }
     }
