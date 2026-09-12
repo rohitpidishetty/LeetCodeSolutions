@@ -14,7 +14,6 @@ class Solution {
         m2[ch - 'a'] = Math.min(m2[ch - 'a'] + 1, m1[ch - 'a']);
       }
     }
-
     return Arrays.equals(m1, m2);
   }
 }
