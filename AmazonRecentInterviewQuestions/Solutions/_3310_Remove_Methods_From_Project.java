@@ -38,6 +38,7 @@ class Solution {
     }
 
     List<Integer> res = new ArrayList<>();
+
     boolean breakable = true;
     for (int i = 0; i < n; i++) {
       if (!processed[i]) res.add(i);
