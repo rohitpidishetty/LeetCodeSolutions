@@ -28,7 +28,6 @@ class Solution {
 
       int count = 0;
       for (int j = 0; j < 26; j++) if (freq[j] > 0) count += freq[j];
-
       max = Math.max(max, count);
     }
     return max;
