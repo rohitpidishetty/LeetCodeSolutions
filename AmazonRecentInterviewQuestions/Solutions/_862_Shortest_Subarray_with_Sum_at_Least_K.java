@@ -5,23 +5,23 @@ import java.util.Map;
 class Solution {
 
   public int shortestSubarray(int[] nums, int k) {
+    int n = nums.length;
+    long[] prefix = new long[n + 1];
+    prefix[0] = nums[0];
+
+    for (int i = 1; i < n; i++) prefix[i] = prefix[i - 1] + nums[i];
+
+    ArrayDeque<long[]> q = new ArrayDeque<>();
     int min = Integer.MAX_VALUE;
+    q.offer(new long[] { 0, -1 });
+    for (int i = 0; i < n; i++) {
+      while (!q.isEmpty() && q.peekLast()[0] >= prefix[i]) q.pollLast();
 
-    long prefixSum = 0;
-    ArrayDeque<long[]> dq = new ArrayDeque<>();
-    dq.offer(new long[] { 0, -1 });
-    for (int i = 0; i < nums.length; i++) {
-      prefixSum += nums[i];
-
-      while (!dq.isEmpty() && prefixSum - dq.peekFirst()[0] >= k) {
-        min = Math.min(min, i - (int) dq.pollFirst()[1]);
+      while (!q.isEmpty() && (prefix[i] - q.peekFirst()[0]) >= k) {
+        min = Math.min(min, i - (int) q.pollFirst()[1]);
       }
 
-      while (!dq.isEmpty() && dq.peekLast()[0] >= prefixSum) {
-        dq.pollLast();
-      }
-
-      dq.offer(new long[] { prefixSum, i });
+      q.offer(new long[] { prefix[i], i });
     }
     return min == Integer.MAX_VALUE ? -1 : min;
   }

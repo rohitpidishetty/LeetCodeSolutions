@@ -5,11 +5,16 @@ class Solution {
   public int countPrimes(int n) {
     if (n <= 2) return 0;
     boolean primes[] = new boolean[n];
-    for (int i = 2; i * i < n; i++) {
-      if (!primes[i]) for (int j = (i * i); j < n; j += i) primes[j] = true;
-    }
     int count = 0;
-    for (int i = 2; i < n; i++) if (!primes[i]) count++;
+    int i = 2;
+    for (; (i * i) < n; i++) {
+      if (primes[i] == false) {
+        for (int j = (i * i); j < n; j += i) primes[j] = true;
+      }
+    }
+
+    for (i = 2; i < n; i++) if (!primes[i]) count++;
+
     return count;
   }
 }
@@ -17,6 +22,6 @@ class Solution {
 public class _204_Count_Primes {
 
   public static void main(String[] args) {
-    System.out.println(new Solution().countPrimes(2));
+    System.out.println(new Solution().countPrimes(10));
   }
 }
