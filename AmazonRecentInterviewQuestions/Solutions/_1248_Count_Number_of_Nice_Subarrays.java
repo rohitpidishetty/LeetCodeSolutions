@@ -3,18 +3,30 @@ import java.util.Map;
 
 class Solution {
 
-  public int numberOfSubarrays(int[] nums, int k) {
-    Map<Integer, Integer> map = new HashMap<>();
+  private int subArrays(int[] nums, int k) {
+    if (k < 0) return 0;
     int n = nums.length;
     int ans = 0;
-    map.put(0, 1);
+
     int oddCount = 0;
+
+    int j = 0;
     for (int i = 0; i < n; i++) {
-      oddCount += (nums[i] % 2);
-      if (map.containsKey(oddCount - k)) ans += map.get(oddCount - k);
-      map.put(oddCount, map.getOrDefault(oddCount, 0) + 1);
+      if (nums[i] % 2 == 1) oddCount++;
+      while (oddCount > k) {
+        if (nums[j] % 2 == 1) {
+          oddCount--;
+        }
+        j++;
+      }
+      ans += (i - j + 1);
     }
+
     return ans;
+  }
+
+  public int numberOfSubarrays(int[] nums, int k) {
+    return subArrays(nums, k) - subArrays(nums, k - 1);
   }
 }
 
